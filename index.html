@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <title>Employee Leave Management</title>
+  <link rel="stylesheet" href="Employee_Leave.css">
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+
+}
+
+
+.banner {
+  background: linear-gradient(135deg,  #2c3e50, #3498db);
+  color: #fff;
+  text-align: center;
+  padding: 2em 0;
+  margin-bottom: 20px;
+}
+
+.banner h1 {
+  font-size: 2em;
+  margin-bottom: 0.5em;
+}
+
+.leavebd{
+  justify-content: center;
+
+}
+.leave-overview {
+  display: flex;
+  justify-content: center;
+
+  padding: 2em;
+  gap: 1em;
+  margin:0% 10%;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.913);
+}
+
+.leave-balance {
+  display: flex;
+  gap: 1em;
+}
+
+.balance-card {
+  padding: 1em;
+  border-radius: 8px;
+  text-align: center;
+  width: 150px;
+}
+
+.leave-overview {
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 2em;
+gap: 1em;
+}
+
+.leave-balance {
+display: flex;
+gap: 1em;
+margin-bottom: 1em; 
+}
+
+.apply-leave-btn,
+.leave-history-btn {
+background-color: #328bf1;
+border: none;
+padding: 1em;
+color: #fff;
+cursor: pointer;
+width: 200px; 
+margin: 0.5em 0;
+border-radius: 4px;
+text-align: center;
+font-size: 1em;
+}
+
+.apply-leave-btn {
+background-color: #4f8bc4;
+}
+
+.leave-history-btn {
+background-color: #3486ca;
+}
+
+.apply-leave-btn:hover,
+.leave-history-btn:hover {
+opacity: 0.9;
+}
+
+
+.leave-request {
+  padding: 2em;
+}
+
+.leave-request form label {
+  display: block;
+  margin-bottom: 1em;
+}
+
+.submit-btn {
+  background-color: #ff1e00;
+  border: none;
+  padding: 0.5em 1em;
+  color: #fff;
+  cursor: pointer;
+}
+
+.leave-history {
+  padding: 2em;
+}
+
+.leave-history table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1em;
+}
+
+.leave-history th, td {
+  padding: 1em;
+  border: 1px solid #d0bca8;
+  text-align: left;
+}
+
+.leave-request {
+  border-radius: 8px;
+  padding: 2em;
+  margin: 2em auto;
+  width: 80%;
+  max-width: 600px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+}
+
+.leave-request h2 {
+  text-align: center;
+  font-size: 1.8em;
+  margin-bottom: 1em;
+  color: #000000;
+}
+
+.leave-request label {
+  font-size: 1em;
+  margin-bottom: 0.5em;
+  display: block;
+  color: #5e503f;
+}
+
+.leave-request select,
+.leave-request input[type="text"] ,
+.leave-request input[type="date"], 
+.leave-request textarea {
+  width: 100%;
+  padding: 0.8em;
+  margin-bottom: 1em;
+  border: 1px solid #000000;
+  border-radius: 4px;
+  background-color: #fff;
+  font-size: 1em;
+  color: #5e503f;
+}
+
+.leave-request textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 1em;
+  background-color: #146fcad3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #96acc1d3;
+}
+
+.submit-btn:active {
+  background-color: #4b79a6d3;
+}
+.leave-overview {
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 2em;
+gap: 1em;
+}
+
+.leave-balance {
+display: flex;
+gap: 1em;
+margin-bottom: 1em; 
+}
+
+.button-container {
+display: flex;
+gap: 1em;
+}
+
+.apply-leave-btn,
+.leave-history-btn {
+background-color: #146fcad3;
+border: none;
+padding: 1em;
+color: #fff;
+cursor: pointer;
+width: 200px; 
+border-radius: 4px;
+text-align: center;
+font-size: 1em;
+}
+
+.apply-leave-btn {
+background-color: #146fcad3;
+}
+
+.leave-history-btn {
+background-color: #146fcad3;;
+}
+
+.apply-leave-btn:hover,
+.leave-history-btn:hover {
+opacity: 0.9;
+}
+
+  </style>
+</head>
+<body>
+
+  <section class="banner">
+    <h1>Employee Leave Management</h1>
+  </section>
+
+  <section class="leave-overview">
+    <h2>Plan your time-off and check your leave balance here.</h2>
+    <div class="leave-balance">
+      <div class="balance-card">
+        <h2>Annual Leave</h2>
+        <p>10 days remaining</p>
+      </div>
+      <div class="balance-card">
+        <h2>Sick Leave</h2>
+        <p>5 days remaining</p>
+      </div>
+      <div class="balance-card">
+        <h2>Casual Leave</h2>
+        <p>8 days remaining</p>
+      </div>
+    </div>
+    <div class="button-container">
+      <button class="apply-leave-btn">Apply for Leave</button>
+      <button class="leave-history-btn">Leave History</button>
+    </div>
+  </section>
+
+  <section class="leave-request">
+    <button class="close-btn" style="background: none; border: none; font-size: 18px; cursor: pointer; margin-left: 100%;">
+      ❌
+  </button>
+    <h2>Request Leave</h2>
+
+    <form id="leaveRequestForm">
+      <div class="form-group">
+        <label for="Empid">Emp-Id</label>
+        <input 
+            type="text" 
+            id="Empid" 
+            name="Empid" 
+            required 
+            pattern="^[A-Z]{3}0[0-9]+$"
+            title="Emp-ID must start with 3 uppercase letters followed by numbers."
+        >
+        <small class="error-message"></small>
+    </div>
+      <label>Leave Type:
+        <select>
+          <option>Annual Leave</option>
+          <option>Sick Leave</option>
+          <option>Casual Leave</option>
+        </select>
+      </label>
+      <label>Start Date: <input type="date" id="startDate"></label>
+      <label>End Date: <input type="date" id="endDate" ></label>
+      <label>Reason: <textarea rows="3"></textarea></label>
+      <button type="submit" class="submit-btn">Submit Request</button>
+    </form>
+    <p id="error-message" style="color: red; display: none;"></p>
+  </section>
+
+  <section class="leave-history">
+    <h2>Leave History</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Date Range</th>
+          <th>Type</th>
+          <th>Status</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody id="leaveHistoryTable">
+      </tbody>
+    </table>
+  </section>
+
+  <script>
+   document.addEventListener("DOMContentLoaded", function () {
+  const applyLeaveBtn = document.querySelector(".apply-leave-btn");
+  const leaveRequestSection = document.querySelector(".leave-request");
+  const leaveHistoryBtn = document.querySelector(".leave-history-btn");
+  const leaveHistorySection = document.querySelector(".leave-history");
+  const leaveHistoryTable = document.getElementById("leaveHistoryTable");
+
+  leaveRequestSection.style.display = "none";
+  leaveHistorySection.style.display = "none";
+
+  applyLeaveBtn.addEventListener("click", function () {
+    leaveRequestSection.style.display =
+      leaveRequestSection.style.display === "none" ? "block" : "none";
+  });
+
+  leaveHistoryBtn.addEventListener("click", function () {
+    leaveHistorySection.style.display =
+      leaveHistorySection.style.display === "none" ? "block" : "none";
+  });
+
+  function formatDate(date) {
+    return date.toISOString().split("T")[0]; 
+  }
+
+  function loadLeaveHistory() {
+    const leaveRequests = JSON.parse(localStorage.getItem("leaveRequests")) || [];
+    leaveHistoryTable.innerHTML = "";
+    leaveRequests.forEach(request => {
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td>${request.startDate} - ${request.endDate}</td>
+        <td>${request.leaveType}</td>
+        <td>${request.status}</td>
+        <td>${request.reason}</td>
+      `;
+      leaveHistoryTable.appendChild(row);
+    });
+  }
+  loadLeaveHistory();
+
+  document.getElementById("leaveRequestForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const leaveType = document.querySelector("select").value;
+    const Empid = document.getElementById("Empid").value;
+    const startDateInput = document.getElementById("startDate");
+    const endDateInput = document.getElementById("endDate");
+    const errorMessage = document.getElementById("error-message");
+    const reason = document.querySelector("textarea").value;
+    
+    const startDate = new Date(startDateInput.value);
+    const endDate = new Date(endDateInput.value);
+    const today = new Date();
+    
+    errorMessage.style.display = "none"; 
+
+    if (startDate < today) {
+      errorMessage.textContent = "Start date cannot be in the past.";
+      errorMessage.style.display = "block";
+      return;
+    }
+
+    if (endDate < startDate) {
+      errorMessage.textContent = "End date cannot be earlier than the start date.";
+      errorMessage.style.display = "block";
+      return;
+    }
+
+    const leaveRequest = {
+      Empid,
+      leaveType,
+      startDate: formatDate(startDate),
+      endDate: formatDate(endDate),
+      reason,
+      status: "Pending",
+    };
+
+    let leaveRequests = JSON.parse(localStorage.getItem("leaveRequests")) || [];
+    leaveRequests.push(leaveRequest);
+    localStorage.setItem("leaveRequests", JSON.stringify(leaveRequests));
+
+    loadLeaveHistory();
+    document.getElementById("leaveRequestForm").reset();
+    alert("Leave Request Form is submitted successfully");
+  });
+});
+
+  </script>
+</body>
+</html>
